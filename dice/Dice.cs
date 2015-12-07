@@ -29,11 +29,14 @@ namespace dice
                 msg += " " + item;
             }
             msg += "\n--- 統計 ---\n";
+            double total = 0;
             for (int i = 1; i < 7; i++)
             {
+                total += i * stat[i];
                 double ratio = (double)stat[i] / history.Count;
                 msg += String.Format("{0} : {1}({2:P1})\n", i, stat[i], ratio);
             }
+            msg += String.Format("平均 {0:F2}" , (total / history.Count));
             return msg;
         }
     }
