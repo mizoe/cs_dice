@@ -31,7 +31,8 @@ namespace dice
             msg += "\n--- 統計 ---\n";
             for (int i = 1; i < 7; i++)
             {
-                msg += i + " : " + stat[i] + "回\n";
+                double ratio = (double)stat[i] / history.Count;
+                msg += String.Format("{0} : {1}({2:P1})\n", i, stat[i], ratio);
             }
             return msg;
         }
