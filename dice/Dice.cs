@@ -8,9 +8,10 @@ namespace dice
 {
     class Dice
     {
+        private Random r = new Random();
         public int roll()
         {
-            return 0;
+            return r.Next(1,7);
         }
     }
 }
