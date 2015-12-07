@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace dice
 {
+    
     class Dice
     {
-        private Random r = new Random();
-        public int roll()
+        private Random rand = new Random();
+        private List<int> history = new List<int>();
+        public int Roll()
         {
-            return r.Next(1,7);
+            int result = rand.Next(1, 7);
+            history.Add(result);
+            return result;
+        }
+        public string getHisotry()
+        {
+            string msg = "";
+            foreach (var item in history)
+            {
+                msg += " " + item;
+            }
+            return msg;
         }
     }
 }
