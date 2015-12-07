@@ -11,6 +11,7 @@ namespace dice
         static void Main(string[] args)
         {
             Dice[] dices = new Dice[3];
+            Player player = new Player();
             for (int i = 0; i < dices.Count(); i++)
             {
                 dices[i] = new Dice();
@@ -26,10 +27,14 @@ namespace dice
                         Console.WriteLine(dices[0].getHisotry());
                         break;
                     default:
-                        foreach (var dice in dices)
+                        int[] results = new int[3];
+                        for (int i = 0; i < dices.Count(); i++)
                         {
-                            Console.Write(dice.Roll());
+                            results[i] = dices[i].Roll();
+                            Console.Write(results[i] + " ");
                         }
+                        string msg = player.setResult(results);
+                        Console.Write(msg);
                         break;
                 }                
             }

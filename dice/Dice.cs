@@ -19,12 +19,12 @@ namespace dice
             rand = new Random(seed++);
         }
 
-        public string Roll()
+        public int Roll()
         {
             int result = rand.Next(1, 7);
             history.Add(result);
             stat[result]++;
-            return result + " ";
+            return result;
         }
         public string getHisotry()
         {
