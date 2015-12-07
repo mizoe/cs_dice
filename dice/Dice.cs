@@ -10,16 +10,21 @@ namespace dice
     
     class Dice
     {
-        private Random rand = new Random();
-        private List<int> history = new List<int>();
-        private int[] stat = new int[7];
+        static private int seed = Environment.TickCount;
+        private Random rand;
+        static private List<int> history = new List<int>();
+        static private int[] stat = new int[7];
 
-        public int Roll()
+        public Dice(){
+            rand = new Random(seed++);
+        }
+
+        public string Roll()
         {
             int result = rand.Next(1, 7);
             history.Add(result);
             stat[result]++;
-            return result;
+            return result + " ";
         }
         public string getHisotry()
         {

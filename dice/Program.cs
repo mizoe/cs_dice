@@ -10,7 +10,11 @@ namespace dice
     {
         static void Main(string[] args)
         {
-            Dice dice = new Dice();
+            Dice[] dices = new Dice[3];
+            for (int i = 0; i < dices.Count(); i++)
+            {
+                dices[i] = new Dice();
+            }
             while (true) {
                 string line = Console.ReadLine();
                 switch (line)
@@ -19,10 +23,13 @@ namespace dice
                         Quit();
                         break;
                     case "h":
-                        Console.WriteLine(dice.getHisotry());
+                        Console.WriteLine(dices[0].getHisotry());
                         break;
                     default:
-                        Console.Write(dice.Roll());
+                        foreach (var dice in dices)
+                        {
+                            Console.Write(dice.Roll());
+                        }
                         break;
                 }                
             }
