@@ -11,7 +11,9 @@ namespace dice
         static void Main(string[] args)
         {
             Dice dice = new Dice();
-            Console.WriteLine(dice.roll());
+            while (Console.ReadLine() != "q") {
+                Console.Write(dice.roll());
+            }
         }
     }
 }
