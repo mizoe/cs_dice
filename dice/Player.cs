@@ -17,7 +17,6 @@ namespace dice
         {
             string msg = "";
             Array.Sort(diceResult);
-            int total = diceResult[0] + diceResult[1] + diceResult[2];
             if (diceResult[0] == diceResult[1] && diceResult[1] == diceResult[2])
             {
                 Point += 150;
